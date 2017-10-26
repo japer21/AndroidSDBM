@@ -6,9 +6,11 @@
     <ListView
         android:id="@+id/personnes"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
 
-        android:layout_above="@+id/buttonAdd" />
+        android:layout_above="@+id/buttonAdd"
+        android:smoothScrollbar="true"
+        android:stackFromBottom="false" />
 
     <Button
         android:id="@+id/buttonAdd"

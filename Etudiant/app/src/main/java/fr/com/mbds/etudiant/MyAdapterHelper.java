@@ -24,11 +24,13 @@ public class MyAdapterHelper implements ListAdapter {
     TextView txt ;
     TextView txt2;
     ImageView myimg;
+    PersonneDBRepository pDb;
     public MyAdapterHelper(Context ctx) {
-        LP = new ArrayList<Personne>();
+        pDb=new PersonneDBRepository(ctx);
+        LP = pDb.getPersonnes();
 
-        LP.add(new Personne("toto", "titi"));
-        LP.add(new Personne("perkova", "jaglika"));
+        //LP.add(new Personne("toto", "titi"));
+        //LP.add(new Personne("perkova", "jaglika"));
         this.ctx = ctx;
     }
 

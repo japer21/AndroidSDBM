@@ -16,7 +16,7 @@ public class Personne implements Serializable{
     public int id;
     public String nom;
     public String prenom;
-    public Bitmap image;
+    public transient Bitmap image;
 
     public Personne(){
 
@@ -24,7 +24,7 @@ public class Personne implements Serializable{
     public Personne(String nom, String prenom) {
         this.nom = nom;
         this.prenom = prenom;
-        FileInputStream in;
+       /* FileInputStream in;
         BufferedInputStream buf;
         try {
             in = new FileInputStream("student.png");
@@ -38,7 +38,7 @@ public class Personne implements Serializable{
             }
         } catch (Exception e) {
             Log.e("Error reading file", e.toString());
-        }
+        }*/
 
     }
 

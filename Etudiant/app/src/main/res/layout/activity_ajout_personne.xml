@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fr.com.mbds.etudiant.AjoutPersonne">
+
+    <ImageView
+        android:layout_width="153dp"
+        android:layout_height="132dp"
+        android:id="@+id/imageAjoutPersonne"
+        android:contentDescription="@string/studentPhoto"
+        tools:layout_editor_absoluteY="189dp"
+        tools:layout_editor_absoluteX="116dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/buttonAjout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CREATE"
+        tools:layout_editor_absoluteY="424dp"
+        tools:layout_editor_absoluteX="254dp"
+        android:layout_marginBottom="39dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/imageAjoutPersonne" />
+
+
+
+    <Button
+        android:id="@+id/addPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/buttonAjout"
+        android:layout_toStartOf="@+id/imageAjoutPersonne"
+        android:text="ADD photo" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Nom"
+        android:textSize="14sp"
+        android:layout_above="@+id/editText3"
+        android:layout_alignEnd="@+id/imageAjoutPersonne"
+        android:layout_marginBottom="32dp" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageAjoutPersonne"
+        android:layout_alignEnd="@+id/imageAjoutPersonne"
+        android:layout_alignStart="@+id/editText2"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Prenom"
+        android:textSize="14sp" />
+
+</RelativeLayout>

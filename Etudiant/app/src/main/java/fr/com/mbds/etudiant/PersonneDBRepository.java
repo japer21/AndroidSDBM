@@ -47,6 +47,29 @@ public class PersonneDBRepository {
         db.close();
 
     }
+
+    public ArrayList<Personne> getPersonnes(){
+        ArrayList<Personne> l = new ArrayList<Personne>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String QUERY ="SELECT " +PersonneDBHelper.nom+
+                ", " +PersonneDBHelper.prenom+
+                ", " +PersonneDBHelper.photo+" FROM "+PersonneDBHelper.TABLE+
+                " ;";
+        Cursor cursor=db.rawQuery(QUERY,null);
+        if(cursor.moveToFirst()){
+            do {
+                Personne personne = new Personne(cursor.getString(cursor.getColumnIndex(PersonneDBHelper.nom)),cursor.getString(cursor.getColumnIndex(PersonneDBHelper.prenom)));
+                //personne.put("nom",cursor.getString(cursor.getColumnIndex(PersonneDBHelper.nom)));
+                //personne.put("prenom",cursor.getString(cursor.getColumnIndex(PersonneDBHelper.prenom)));
+                personne.setImage(DbBitmapUtility.getImage(cursor.getBlob(cursor.getColumnIndex(PersonneDBHelper.photo))));
+                l.add(personne);
+            }
+            while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return l;
+    }
     public ArrayList<HashMap<String,Object>> listPersonnes (){
         ArrayList<HashMap<String, Object>> personnesList = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();

@@ -3,9 +3,13 @@ package fr.com.mbds.etudiant;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import utils.DbBitmapUtility;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -27,10 +31,11 @@ public class Main2Activity extends AppCompatActivity {
         buttonShare=(Button)findViewById(R.id.buttonShare);
 
         Intent i = getIntent();
-        Personne p = (Personne)i.getSerializableExtra("personne");
-
-        img.setImageBitmap(p.getImage());
-        getNom.setText(p.getNom());
-        getPrenom.setText(p.getPrenom());
+       // Personne p = (Personne)i.getSerializableExtra("personne");
+        Personne pers = (Personne) i.getSerializableExtra("personne");
+        byte [] image = i.getByteArrayExtra("img");
+        img.setImageBitmap(DbBitmapUtility.getImage(image));
+        getNom.setText(pers.getNom());
+        getPrenom.setText(pers.getPrenom());
     }
 }
