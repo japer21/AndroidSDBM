@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity{
     TextView txt2;
     Button add;
     Button bluetooth;
-    BluetoothAdapter mBluetoothAdapter ;
+    //BluetoothAdapter mBluetoothAdapter ;
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(resultCode==RESULT_OK){
@@ -66,11 +66,12 @@ public class MainActivity extends AppCompatActivity{
        bluetooth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+                BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
                 if (mBluetoothAdapter == null) {
                     Toast.makeText(getApplicationContext(),"The device does not support Bluetooth", Toast.LENGTH_LONG).show();
+                    finish();
                 }
-                if (!mBluetoothAdapter.isEnabled()) {
+                else if (!mBluetoothAdapter.isEnabled()) {
                     Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                     startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
                 }

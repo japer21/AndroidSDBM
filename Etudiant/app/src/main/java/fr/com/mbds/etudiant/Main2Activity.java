@@ -31,7 +31,6 @@ public class Main2Activity extends AppCompatActivity {
         buttonShare=(Button)findViewById(R.id.buttonShare);
 
         Intent i = getIntent();
-       // Personne p = (Personne)i.getSerializableExtra("personne");
         Personne pers = (Personne) i.getSerializableExtra("personne");
         byte [] image = i.getByteArrayExtra("img");
         img.setImageBitmap(DbBitmapUtility.getImage(image));
