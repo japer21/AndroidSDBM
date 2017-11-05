@@ -13,6 +13,7 @@ import utils.DbBitmapUtility;
 
 public class Main2Activity extends AppCompatActivity {
 
+
     TextView nom;
     TextView getNom;
     TextView prenom;
